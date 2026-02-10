@@ -5,50 +5,52 @@ import { Link } from 'react-router-dom';
 import { FaPlay, FaInstagram, FaQuoteLeft } from 'react-icons/fa';
 import SectionTitle from '../components/SectionTitle';
 
-// High-quality Indian Wedding Images - Genuine & Cinematic
+// Updated Image List - Using varied sources and cleaner URLs to avoid blocking
 const heroImages = [
-  "https://images.unsplash.com/photo-1605218457336-92d3e0984852?q=80&w=1920&auto=format&fit=crop", // Genuine Couple Laughing
-  "https://images.unsplash.com/photo-1595514682333-722e96d2524d?q=80&w=1920&auto=format&fit=crop", // Traditional Bride
-  "https://images.unsplash.com/photo-1519225448526-06451554c289?q=80&w=1920&auto=format&fit=crop", // Groom Details
-  "https://images.unsplash.com/photo-1623164100984-722881e5b475?q=80&w=1920&auto=format&fit=crop"  // Nature Pre-wedding
+  "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Indian Wedding Couple
+  "https://images.pexels.com/photos/10356555/pexels-photo-10356555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Bride Red Lehenga
+  "https://images.pexels.com/photos/12214660/pexels-photo-12214660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Haldi / Yellow
+  "https://images.pexels.com/photos/15898335/pexels-photo-15898335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Traditional Groom
+  "https://images.pexels.com/photos/5700204/pexels-photo-5700204.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  // Cinematic Couple
 ];
 
 const rituals = [
   { 
     title: "Haldi", 
     desc: "The color of joy and blessings.", 
-    img: "https://images.unsplash.com/photo-1634547263595-5c1a71c8466f?q=80&w=800&auto=format&fit=crop" // Joyful Haldi
+    img: "https://images.pexels.com/photos/12214660/pexels-photo-12214660.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   { 
     title: "Mehndi", 
     desc: "Intricate patterns of love.", 
-    img: "https://images.unsplash.com/photo-1583934555026-6d85ce8f01b9?q=80&w=800&auto=format&fit=crop" // Bride with Mehndi
+    img: "https://images.pexels.com/photos/5412432/pexels-photo-5412432.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   { 
     title: "Pheras", 
     desc: "Seven vows for seven lifetimes.", 
-    img: "https://images.unsplash.com/photo-1587271407850-8d438913d2cd?q=80&w=800&auto=format&fit=crop" // Fire/Ritual
+    img: "https://images.pexels.com/photos/10356555/pexels-photo-10356555.jpeg?auto=compress&cs=tinysrgb&w=800"
   }
 ];
 
 const lovedMoments = [
-  { img: "https://images.unsplash.com/photo-1522673607200-1645062cd958?q=80&w=800&auto=format&fit=crop", title: "Aditi & Rahul", location: "Udaipur Palace", date: "Dec 2024" },
-  { img: "https://images.unsplash.com/photo-1532712938310-34cb3958d42d?q=80&w=800&auto=format&fit=crop", title: "Priya & Amit", location: "Tithal Beach, Valsad", date: "Jan 2025" },
-  { img: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=800&auto=format&fit=crop", title: "Sana & Kabir", location: "Ahmedabad", date: "Nov 2024" }
+  { img: "https://images.pexels.com/photos/14209598/pexels-photo-14209598.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Aditi & Rahul", location: "Udaipur Palace", date: "Dec 2024" },
+  { img: "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Priya & Amit", location: "Tithal Beach, Valsad", date: "Jan 2025" },
+  { img: "https://images.pexels.com/photos/3585805/pexels-photo-3585805.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Sana & Kabir", location: "Ahmedabad", date: "Nov 2024" }
 ];
 
 const films = [
-  { img: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800&auto=format&fit=crop", title: "The Royal Union", type: "Wedding Film" },
-  { img: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=800&auto=format&fit=crop", title: "Endless Love", type: "Pre-Wedding Teaser" }
+  { img: "https://images.pexels.com/photos/2959192/pexels-photo-2959192.jpeg?auto=compress&cs=tinysrgb&w=800", title: "The Royal Union", type: "Wedding Film" },
+  { img: "https://images.pexels.com/photos/3352398/pexels-photo-3352398.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Endless Love", type: "Pre-Wedding Teaser" }
 ];
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
+    // Speed up slider to 3 seconds as requested
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -62,7 +64,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 1.5 }}
             className="position-absolute top-0 start-0 w-100 h-100"
             style={{ 
               backgroundImage: `url(${heroImages[currentImageIndex]})`,
