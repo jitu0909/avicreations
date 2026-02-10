@@ -6,21 +6,22 @@ import SectionTitle from '../components/SectionTitle';
 
 const portfolioItems = [
   // Wedding
-  { id: 1, category: "Wedding", img: "https://images.unsplash.com/photo-1583934555026-6d85ce8f01b9?auto=format&fit=crop&q=80", height: "auto" },
-  { id: 2, category: "Wedding", img: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&q=80", height: "auto" },
-  { id: 3, category: "Wedding", img: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&q=80", height: "auto" },
-  // Pre-Wedding
-  { id: 4, category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1522673607200-1645062cd958?auto=format&fit=crop&q=80", height: "auto" },
-  { id: 5, category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80", height: "auto" },
+  { id: 1, category: "Wedding", img: "https://images.unsplash.com/photo-1595514682333-722e96d2524d?q=80&w=800", height: "auto" }, // Bride Red
+  { id: 2, category: "Wedding", img: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800", height: "auto" }, // Decor
+  { id: 3, category: "Wedding", img: "https://images.unsplash.com/photo-1549416876-b930d6718d72?q=80&w=800", height: "auto" }, // Traditional Bride
+  // Pre-Wedding / Nature
+  { id: 4, category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1623164100984-722881e5b475?q=80&w=800", height: "auto" }, // Couple Greenery
+  { id: 5, category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=800", height: "auto" }, // Landscape
+  { id: 11, category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1532712938310-34cb3958d42d?q=80&w=800", height: "auto" }, // Couple Field
   // Haldi
-  { id: 6, category: "Haldi", img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80", height: "auto" },
+  { id: 6, category: "Haldi", img: "https://images.unsplash.com/photo-1634547263595-5c1a71c8466f?q=80&w=800", height: "auto" }, // Haldi Smear
   // Mehndi
-  { id: 7, category: "Mehndi", img: "https://images.unsplash.com/photo-1595514682333-722e96d2524d?auto=format&fit=crop&q=80", height: "auto" },
+  { id: 7, category: "Mehndi", img: "https://images.unsplash.com/photo-1583934555026-6d85ce8f01b9?q=80&w=800", height: "auto" }, // Mehndi Hands
   // Candid
-  { id: 8, category: "Candid", img: "https://images.unsplash.com/photo-1605218457336-92d3e0984852?auto=format&fit=crop&q=80", height: "auto" },
+  { id: 8, category: "Candid", img: "https://images.unsplash.com/photo-1522673607200-1645062cd958?q=80&w=800", height: "auto" }, // Laughing
   // More Indian Wedding
-  { id: 9, category: "Wedding", img: "https://images.unsplash.com/photo-1519225448526-06451554c289?auto=format&fit=crop&q=80", height: "auto" },
-  { id: 10, category: "Haldi", img: "https://images.unsplash.com/photo-1621621667797-e06afc217fb0?auto=format&fit=crop&q=80", height: "auto" }
+  { id: 9, category: "Wedding", img: "https://images.unsplash.com/photo-1519225448526-06451554c289?q=80&w=800", height: "auto" }, // Details
+  { id: 10, category: "Haldi", img: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800", height: "auto" } // Yellow Flowers
 ];
 
 const categories = ["All", "Wedding", "Pre-Wedding", "Haldi", "Mehndi", "Candid"];

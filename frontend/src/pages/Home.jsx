@@ -1,45 +1,45 @@
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaPlay, FaInstagram, FaQuoteLeft } from 'react-icons/fa';
 import SectionTitle from '../components/SectionTitle';
 
-// High-quality Indian Wedding Images
+// High-quality Indian Wedding Images - Genuine & Cinematic
 const heroImages = [
-  "https://images.unsplash.com/photo-1583934555026-6d85ce8f01b9?auto=format&fit=crop&q=80", // Indian Bride (Red/Gold)
-  "https://images.unsplash.com/photo-1519225448526-06451554c289?auto=format&fit=crop&q=80", // Groom / Turban
-  "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&q=80", // Decor
-  "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&q=80"  // Couple Emotional
+  "https://images.unsplash.com/photo-1605218457336-92d3e0984852?q=80&w=1920&auto=format&fit=crop", // Genuine Couple Laughing
+  "https://images.unsplash.com/photo-1595514682333-722e96d2524d?q=80&w=1920&auto=format&fit=crop", // Traditional Bride
+  "https://images.unsplash.com/photo-1519225448526-06451554c289?q=80&w=1920&auto=format&fit=crop", // Groom Details
+  "https://images.unsplash.com/photo-1623164100984-722881e5b475?q=80&w=1920&auto=format&fit=crop"  // Nature Pre-wedding
 ];
 
 const rituals = [
   { 
     title: "Haldi", 
     desc: "The color of joy and blessings.", 
-    img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80" // Placeholder for Haldi (Yellow theme)
+    img: "https://images.unsplash.com/photo-1634547263595-5c1a71c8466f?q=80&w=800&auto=format&fit=crop" // Joyful Haldi
   },
   { 
     title: "Mehndi", 
     desc: "Intricate patterns of love.", 
-    img: "https://images.unsplash.com/photo-1583934555026-6d85ce8f01b9?auto=format&fit=crop&q=80" // Placeholder for Mehndi (Hands)
+    img: "https://images.unsplash.com/photo-1583934555026-6d85ce8f01b9?q=80&w=800&auto=format&fit=crop" // Bride with Mehndi
   },
   { 
     title: "Pheras", 
     desc: "Seven vows for seven lifetimes.", 
-    img: "https://images.unsplash.com/photo-1621621667797-e06afc217fb0?auto=format&fit=crop&q=80" // Placeholder for Mandap/Fire
+    img: "https://images.unsplash.com/photo-1587271407850-8d438913d2cd?q=80&w=800&auto=format&fit=crop" // Fire/Ritual
   }
 ];
 
 const lovedMoments = [
-  { img: "https://images.unsplash.com/photo-1605218457336-92d3e0984852?auto=format&fit=crop&q=80", title: "Aditi & Rahul", location: "Udaipur Palace", date: "Dec 2024" },
-  { img: "https://images.unsplash.com/photo-1595514682333-722e96d2524d?auto=format&fit=crop&q=80", title: "Priya & Amit", location: "Tithal Beach, Valsad", date: "Jan 2025" },
-  { img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80", title: "Sana & Kabir", location: "Ahmedabad", date: "Nov 2024" }
+  { img: "https://images.unsplash.com/photo-1522673607200-1645062cd958?q=80&w=800&auto=format&fit=crop", title: "Aditi & Rahul", location: "Udaipur Palace", date: "Dec 2024" },
+  { img: "https://images.unsplash.com/photo-1532712938310-34cb3958d42d?q=80&w=800&auto=format&fit=crop", title: "Priya & Amit", location: "Tithal Beach, Valsad", date: "Jan 2025" },
+  { img: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=800&auto=format&fit=crop", title: "Sana & Kabir", location: "Ahmedabad", date: "Nov 2024" }
 ];
 
 const films = [
-  { img: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&q=80", title: "The Royal Union", type: "Wedding Film" },
-  { img: "https://images.unsplash.com/photo-1522673607200-1645062cd958?auto=format&fit=crop&q=80", title: "Endless Love", type: "Pre-Wedding Teaser" }
+  { img: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800&auto=format&fit=crop", title: "The Royal Union", type: "Wedding Film" },
+  { img: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=800&auto=format&fit=crop", title: "Endless Love", type: "Pre-Wedding Teaser" }
 ];
 
 const Home = () => {
