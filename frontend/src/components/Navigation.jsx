@@ -24,20 +24,45 @@ const Navigation = () => {
     <Navbar 
       expand="lg" 
       fixed="top" 
-      className={`py-3 transition-all ${scrolled || !isHome ? 'bg-white shadow-sm' : 'bg-transparent'}`}
-      variant={scrolled || !isHome ? 'light' : 'dark'}
-      style={{ transition: 'background-color 0.3s ease' }}
+      className={`py-3 transition-all duration-500 ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}
+      variant={scrolled ? 'light' : 'dark'}
     >
       <Container>
-        <Navbar.Brand as={Link} to="/" className={`fw-bold ${scrolled || !isHome ? 'text-dark' : 'text-white'}`}>
+        <Navbar.Brand 
+          as={Link} 
+          to="/" 
+          className={`font-serif fw-bold ${scrolled ? 'text-dark' : 'text-white'}`}
+          style={{ letterSpacing: '2px' }}
+        >
           AVI CREATION
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/" className={location.pathname === '/' ? 'active fw-bold' : ''}>Home</Nav.Link>
-            <Nav.Link as={Link} to="/portfolio" className={location.pathname === '/portfolio' ? 'active fw-bold' : ''}>Portfolio</Nav.Link>
-            <Nav.Link as={Link} to="/contact" className={location.pathname === '/contact' ? 'active fw-bold' : ''}>Contact</Nav.Link>
+          <Nav className="ms-auto align-items-center">
+            {['Home', 'Portfolio', 'Contact'].map((item) => (
+              <Nav.Link 
+                as={Link} 
+                to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
+                key={item}
+                className={`mx-3 text-uppercase letter-spacing-2 ${
+                  location.pathname === (item === 'Home' ? '/' : `/${item.toLowerCase()}`) 
+                    ? 'text-gold' 
+                    : (scrolled ? 'text-dark' : 'text-white')
+                }`}
+                style={{ fontSize: '0.8rem' }}
+              >
+                {item}
+              </Nav.Link>
+            ))}
+            <a 
+              href="https://wa.me/918758666628" 
+              target="_blank" 
+              rel="noreferrer" 
+              className={`btn btn-sm ms-3 ${scrolled ? 'btn-outline-dark' : 'btn-outline-light'} rounded-0 px-4 py-2 text-uppercase letter-spacing-2`}
+              style={{ fontSize: '0.75rem' }}
+            >
+              Inquire
+            </a>
           </Nav>
         </Navbar.Collapse>
       </Container>
