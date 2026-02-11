@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaInstagram, FaYoutube, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import Logo from './Logo';
 
 const Footer = () => {
   return (
@@ -7,7 +8,9 @@ const Footer = () => {
       <Container>
         <Row className="g-4">
           <Col md={4}>
-            <h4 className="text-gold mb-4">Avi Creation</h4>
+            <div className="mb-4">
+               <Logo color="#d4af37" width={200} />
+            </div>
             <p>Capturing your most beautiful moments with elegance and style. Specialized in Pre-wedding, Wedding, and all your functions.</p>
           </Col>
           <Col md={4}>

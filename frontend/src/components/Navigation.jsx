@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Logo from './Logo';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -20,6 +21,9 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Determine logo color based on scroll state
+  const logoColor = scrolled ? '#1a1a1a' : '#ffffff';
+
   return (
     <Navbar 
       expand="lg" 
@@ -31,10 +35,9 @@ const Navigation = () => {
         <Navbar.Brand 
           as={Link} 
           to="/" 
-          className={`font-serif fw-bold ${scrolled ? 'text-dark' : 'text-white'}`}
-          style={{ letterSpacing: '2px' }}
+          className="d-flex align-items-center"
         >
-          AVI CREATION
+          <Logo color={logoColor} width={180} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

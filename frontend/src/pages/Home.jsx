@@ -2,61 +2,60 @@ import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaPlay, FaInstagram, FaQuoteLeft } from 'react-icons/fa';
+import { FaPlay, FaInstagram, FaQuoteLeft, FaOm } from 'react-icons/fa'; // Added Om icon for culture
 import SectionTitle from '../components/SectionTitle';
 
-// Updated Image List - Using varied sources and cleaner URLs to avoid blocking
+// STRICTLY INDIAN TRADITIONAL COUPLE IMAGES ONLY (Groom Turban/Sherwani & Bride Lehenga)
 const heroImages = [
-  "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Indian Wedding Couple
-  "https://images.pexels.com/photos/10356555/pexels-photo-10356555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Bride Red Lehenga
-  "https://images.pexels.com/photos/12214660/pexels-photo-12214660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Haldi / Yellow
-  "https://images.pexels.com/photos/15898335/pexels-photo-15898335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Traditional Groom
-  "https://images.pexels.com/photos/5700204/pexels-photo-5700204.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  // Cinematic Couple
+  "https://images.pexels.com/photos/8565495/pexels-photo-8565495.jpeg?auto=compress&cs=tinysrgb&w=1600", // Groom Turban + Bride Lehenga (Perfect Match)
+  "https://images.pexels.com/photos/6544197/pexels-photo-6544197.jpeg?auto=compress&cs=tinysrgb&w=1600", // Traditional Groom Pagdi + Bride Red Lehenga
+  "https://images.pexels.com/photos/13974866/pexels-photo-13974866.jpeg?auto=compress&cs=tinysrgb&w=1600", // Royal Couple (Turban & Lehenga)
+  "https://images.pexels.com/photos/30155180/pexels-photo-30155180.jpeg?auto=compress&cs=tinysrgb&w=1600", // New Romantic Embrace (Trending)
+  "https://images.pexels.com/photos/19733687/pexels-photo-19733687.jpeg?auto=compress&cs=tinysrgb&w=1600", // Gujarat Couple (Royal Classic)
 ];
 
 const rituals = [
   { 
-    title: "Haldi", 
-    desc: "The color of joy and blessings.", 
-    img: "https://images.pexels.com/photos/12214660/pexels-photo-12214660.jpeg?auto=compress&cs=tinysrgb&w=800"
+    title: "The Royal Engagement", 
+    desc: "A promise of forever, celebrated with elegance and grace.", 
+    img: "https://images.pexels.com/photos/19230329/pexels-photo-19230329.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   { 
-    title: "Mehndi", 
-    desc: "Intricate patterns of love.", 
-    img: "https://images.pexels.com/photos/5412432/pexels-photo-5412432.jpeg?auto=compress&cs=tinysrgb&w=800"
+    title: "Sangeet & Celebration", 
+    desc: "A night of music, dance, and royal festivities.", 
+    img: "https://images.pexels.com/photos/6544197/pexels-photo-6544197.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   { 
-    title: "Pheras", 
-    desc: "Seven vows for seven lifetimes.", 
-    img: "https://images.pexels.com/photos/10356555/pexels-photo-10356555.jpeg?auto=compress&cs=tinysrgb&w=800"
+    title: "The Eternal Vows", 
+    desc: "The seven sacred steps binding two souls in eternal love.", 
+    img: "https://images.pexels.com/photos/30171219/pexels-photo-30171219.jpeg?auto=compress&cs=tinysrgb&w=800"
   }
 ];
 
 const lovedMoments = [
-  { img: "https://images.pexels.com/photos/14209598/pexels-photo-14209598.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Aditi & Rahul", location: "Udaipur Palace", date: "Dec 2024" },
-  { img: "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Priya & Amit", location: "Tithal Beach, Valsad", date: "Jan 2025" },
-  { img: "https://images.pexels.com/photos/3585805/pexels-photo-3585805.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Sana & Kabir", location: "Ahmedabad", date: "Nov 2024" }
+  { img: "https://images.pexels.com/photos/6544197/pexels-photo-6544197.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Riya & Dev", location: "Royal Palace, Udaipur", date: "Shubh Vivah" },
+  { img: "https://images.pexels.com/photos/19733687/pexels-photo-19733687.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Anjali & Vikram", location: "Tithal Beach, Valsad", date: "Mangal Parinay" },
+  { img: "https://images.pexels.com/photos/2959192/pexels-photo-2959192.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Priya & Amit", location: "Grand Hyatt, Mumbai", date: "Saptapadi" }
 ];
 
 const films = [
-  { img: "https://images.pexels.com/photos/2959192/pexels-photo-2959192.jpeg?auto=compress&cs=tinysrgb&w=800", title: "The Royal Union", type: "Wedding Film" },
-  { img: "https://images.pexels.com/photos/3352398/pexels-photo-3352398.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Endless Love", type: "Pre-Wedding Teaser" }
+  { img: "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Vivaha Sanskar", type: "Wedding Film" },
+  { img: "https://images.pexels.com/photos/3585805/pexels-photo-3585805.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Preet Ki Dor", type: "Pre-Wedding Teaser" }
 ];
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Speed up slider to 3 seconds as requested
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3000);
+    }, 3000); // 3 seconds interval as requested
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      {/* Cinematic Hero Section */}
+      {/* Royal Hero Section */}
       <div className="hero-section position-relative vh-100 overflow-hidden bg-black">
         <AnimatePresence mode='wait'>
           <motion.div
@@ -64,13 +63,13 @@ const Home = () => {
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 1 }}
             className="position-absolute top-0 start-0 w-100 h-100"
             style={{ 
               backgroundImage: `url(${heroImages[currentImageIndex]})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'brightness(0.5)'
+              backgroundPosition: 'center 20%', // ALIGNMENT FIX: Focus slightly higher than center for faces
+              filter: 'brightness(0.55)'
             }}
           />
         </AnimatePresence>
@@ -82,21 +81,23 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              <div className="d-inline-block border-top border-bottom border-light py-2 px-4 mb-4">
-                <h6 className="text-gold letter-spacing-4 text-uppercase mb-0">Avi Creation Valsad</h6>
+              <div className="d-inline-block border-top border-bottom border-warning py-2 px-4 mb-4">
+                <h6 className="text-warning letter-spacing-4 text-uppercase mb-0 fw-bold">
+                  <FaOm className="me-2" /> Avi Creation Valsad
+                </h6>
               </div>
               <h1 className="display-1 fw-bold mb-4 font-serif text-white">
-                Capturing <span className="text-gold fst-italic">Soulful</span> Indian Stories
+                The Royal <span className="text-warning fst-italic">Indian</span> Wedding
               </h1>
-              <p className="lead mb-5 opacity-75 mx-auto font-serif fst-italic" style={{ maxWidth: '700px', fontSize: '1.5rem' }}>
-                "From the joyous Haldi to the emotional Vidaai, we preserve the essence of your heritage."
+              <p className="lead mb-5 opacity-90 mx-auto font-serif" style={{ maxWidth: '700px', fontSize: '1.4rem', color: '#f8f9fa' }}>
+                "Celebrating Traditions, Capturing Emotions, Creating Legacy."
               </p>
               <div className="d-flex justify-content-center gap-3">
-                <Button as={Link} to="/contact" variant="outline-light" className="btn-gold text-white border-white px-5 py-3 rounded-0">
-                  Book Your Date
+                <Button as={Link} to="/contact" variant="warning" className="text-dark fw-bold px-5 py-3 rounded-0 shadow-lg">
+                  Book Your Dates
                 </Button>
-                <Button as={Link} to="/portfolio" variant="link" className="text-white text-decoration-none text-uppercase letter-spacing-2 align-self-center">
-                  View Portfolio
+                <Button as={Link} to="/portfolio" variant="outline-light" className="text-white px-5 py-3 rounded-0 border-2">
+                  View Gallery
                 </Button>
               </div>
             </motion.div>
@@ -104,143 +105,89 @@ const Home = () => {
         </div>
       </div>
 
-      {/* About / Introduction */}
-      <section className="py-5 bg-white pattern-overlay">
+      {/* Rituals Section */}
+      <div className="py-5" style={{ backgroundColor: '#fffdf5' }}>
         <Container className="py-5">
-          <Row className="justify-content-center text-center">
-            <Col md={10} lg={8}>
-              <SectionTitle title="The Art of Celebration" subtitle="Our Philosophy" />
-              <p className="lead text-dark font-serif fs-3 mb-4">
-                "We don't just click pictures; we weave stories."
-              </p>
-              <p className="text-secondary mb-5" style={{ lineHeight: '1.8' }}>
-                Based in <strong>Valsad, Gujarat</strong>, Avi Creation is a team of passionate storytellers dedicated to the grandeur of Indian weddings. We understand that a wedding is not just an event; it's a union of families, a riot of colors, and a treasure trove of emotions. Whether it's the playful banter during the <em>Mehndi</em> or the solemn vows around the sacred fire, we are there to capture it all with elegance and style.
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* The Rituals (Indian Context) */}
-      <section className="py-5 bg-light">
-        <Container className="py-5">
-          <SectionTitle title="The Rituals" subtitle="Traditions We Cherish" />
-          <Row className="g-0">
+          <SectionTitle title="Our Traditions" subtitle="The Sacred Rituals" />
+          <Row className="g-4">
             {rituals.map((ritual, index) => (
               <Col md={4} key={index}>
                 <motion.div 
-                  whileHover={{ y: -5 }}
-                  className="position-relative overflow-hidden group h-100"
-                  style={{ minHeight: '400px' }}
+                  whileHover={{ y: -10 }}
+                  className="bg-white p-3 shadow-sm h-100 border border-warning border-opacity-25"
                 >
-                  <img src={ritual.img} alt={ritual.title} className="w-100 h-100 object-fit-cover transition-transform duration-700 hover:scale-110" />
-                  <div className="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-40 d-flex flex-column justify-content-end p-4 text-white">
-                    <h3 className="font-serif display-6 mb-2">{ritual.title}</h3>
-                    <p className="opacity-90 font-serif fst-italic">{ritual.desc}</p>
+                  <div className="overflow-hidden mb-3" style={{ height: '300px' }}>
+                    <img src={ritual.img} alt={ritual.title} className="w-100 h-100 object-fit-cover" />
                   </div>
+                  <h3 className="h4 font-serif mb-2 text-dark">{ritual.title}</h3>
+                  <p className="text-muted small mb-0 font-serif">{ritual.desc}</p>
                 </motion.div>
               </Col>
             ))}
           </Row>
         </Container>
-      </section>
+      </div>
 
-      {/* Loved Moments (Featured Stories) */}
-      <section className="py-5 bg-white">
+      {/* Cinematic Films Section */}
+      <div className="py-5 bg-dark text-white">
         <Container className="py-5">
-          <div className="d-flex justify-content-between align-items-end mb-5">
-            <div className="text-start">
-              <h6 className="text-gold text-uppercase letter-spacing-4 mb-2">Real Love Stories</h6>
-              <h2 className="display-4 fw-bold font-serif mb-0">Loved Moments</h2>
-            </div>
-            <Link to="/portfolio" className="text-dark text-decoration-none text-uppercase letter-spacing-2 border-bottom border-dark pb-1 d-none d-md-block">
-              View All Stories
-            </Link>
-          </div>
-          
+          <SectionTitle title="Cinematic Films" subtitle="Timeless Memories" />
+          <Row className="g-4">
+            {films.map((film, index) => (
+              <Col md={6} key={index}>
+                <div className="position-relative group overflow-hidden border border-secondary">
+                  <div className="ratio ratio-16x9">
+                    <img src={film.img} alt={film.title} className="object-fit-cover opacity-75" />
+                  </div>
+                  <div className="position-absolute top-50 start-50 translate-middle">
+                    <div className="bg-warning rounded-circle p-3 shadow-lg d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px', cursor: 'pointer' }}>
+                      <FaPlay className="text-dark ms-1" size={20} />
+                    </div>
+                  </div>
+                  <div className="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t from-black">
+                    <h3 className="h4 mb-1 font-serif text-warning">{film.title}</h3>
+                    <p className="mb-0 small text-white-50 text-uppercase">{film.type}</p>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+
+      {/* Loved Moments */}
+      <div className="py-5 bg-white">
+        <Container className="py-5">
+          <SectionTitle title="Real Weddings" subtitle="Love Stories" />
           <Row className="g-4">
             {lovedMoments.map((moment, index) => (
               <Col md={4} key={index}>
-                <motion.div 
-                  whileHover={{ y: -10 }}
-                  className="cursor-pointer"
-                >
-                  <div className="overflow-hidden mb-3 shadow-sm">
-                    <img src={moment.img} alt={moment.title} className="w-100 object-fit-cover" style={{ height: '500px' }} />
+                <div className="position-relative">
+                  <div className="ratio ratio-4x5 mb-3">
+                    <img src={moment.img} alt={moment.title} className="object-fit-cover shadow" />
                   </div>
                   <div className="text-center">
                     <h4 className="font-serif mb-1">{moment.title}</h4>
-                    <p className="text-muted text-uppercase small letter-spacing-2 mb-0">
-                      {moment.location} <span className="mx-2">•</span> {moment.date}
-                    </p>
+                    <p className="text-warning small text-uppercase letter-spacing-2 mb-1">{moment.location}</p>
+                    <p className="text-muted small fst-italic">{moment.date}</p>
                   </div>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
-          <div className="text-center mt-5 d-md-none">
-            <Link to="/portfolio" className="text-dark text-decoration-none text-uppercase letter-spacing-2 border-bottom border-dark pb-1">
-              View All Stories
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* Cinematic Films */}
-      <section className="py-5 bg-black text-white">
-        <Container className="py-5">
-          <SectionTitle title="Cinematic Films" subtitle="Motion Pictures" />
-          <Row className="g-5 justify-content-center">
-            {films.map((film, index) => (
-              <Col md={6} key={index}>
-                <div className="position-relative overflow-hidden group cursor-pointer shadow-lg border border-secondary border-opacity-25">
-                  <div className="ratio ratio-16x9">
-                    <img src={film.img} alt={film.title} className="object-fit-cover w-100 h-100 opacity-75 transition-opacity duration-300 hover:opacity-100" />
-                  </div>
-                  <div className="position-absolute top-50 start-50 translate-middle">
-                    <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle p-4 text-white d-flex align-items-center justify-content-center border border-white border-opacity-50 transition-transform duration-300 hover:scale-110" style={{ width: '80px', height: '80px' }}>
-                      <FaPlay className="ms-1" size={24} />
-                    </div>
-                  </div>
-                </div>
-                <div className="text-center mt-4">
-                  <h3 className="font-serif mb-2">{film.title}</h3>
-                  <p className="text-gold text-uppercase letter-spacing-2 small">{film.type}</p>
                 </div>
               </Col>
             ))}
           </Row>
         </Container>
-      </section>
+      </div>
 
-      {/* Testimonials (Love Notes) */}
-      <section className="py-5 bg-light pattern-overlay">
-        <Container className="py-5">
-          <SectionTitle title="Love Notes" subtitle="Kind Words" />
-          <Row className="justify-content-center">
-            <Col md={8} className="text-center">
-              <FaQuoteLeft className="text-gold mb-4" size={30} />
-              <p className="lead font-serif fst-italic mb-4 fs-3">
-                "Avi Creation made our dream wedding in Valsad look like a Bollywood movie. Every photo captures the emotion perfectly. We are forever grateful!"
-              </p>
-              <h5 className="font-serif fw-bold">– Meera & Rohan</h5>
-              <p className="text-muted small text-uppercase letter-spacing-2">Married in Valsad, 2024</p>
-            </Col>
-          </Row>
+      {/* Quote Section */}
+      <div className="py-5 bg-warning bg-opacity-10">
+        <Container className="text-center py-5">
+          <FaQuoteLeft className="text-warning mb-4" size={40} />
+          <h2 className="display-6 font-serif fst-italic mb-4" style={{ color: '#5a461b' }}>
+            "Marriage is not just a union of two souls, but a celebration of two families, traditions, and eternal love."
+          </h2>
+          <p className="lead mb-0 font-serif">— Avi Creation</p>
         </Container>
-      </section>
-
-      {/* Instagram Feed Preview */}
-      <section className="py-5 bg-white">
-        <Container className="py-5 text-center">
-          <FaInstagram size={40} className="text-gold mb-4" />
-          <h2 className="font-serif mb-4">Follow Our Journey</h2>
-          <p className="text-muted mb-4">Join our community of {`10k+`} followers on Instagram</p>
-          <a href="https://www.instagram.com/avicreationvalsad" target="_blank" rel="noreferrer" className="text-dark text-decoration-none letter-spacing-2 text-uppercase fw-bold border-bottom border-dark pb-1">
-            @avicreationvalsad
-          </a>
-        </Container>
-      </section>
+      </div>
     </>
   );
 };
