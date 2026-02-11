@@ -1,72 +1,70 @@
 import React from 'react';
 
-const Logo = ({ color = '#000', width = 320 }) => {
+const Logo = ({ color = '#000', width = 300 }) => {
   return (
     <svg 
       width={width} 
-      viewBox="0 0 520 120" 
+      viewBox="0 0 500 120" 
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Avi Creation Photography Logo"
     >
-      {/* Camera Icon - Sharp and Modern */}
-      <g transform="translate(10, 25)">
-        {/* Main Camera Body */}
-        <rect x="0" y="12" width="65" height="42" rx="3" ry="3" fill="none" stroke={color} strokeWidth="3" />
+      {/* Abstract Lens/Shutter Element - Minimalist & Premium */}
+      <g transform="translate(10, 30)">
+        {/* Outer Ring */}
+        <circle cx="35" cy="35" r="32" fill="none" stroke={color} strokeWidth="1.5" />
         
-        {/* Pentaprism (Top part) */}
-        <path d="M18 12 L24 4 L41 4 L47 12" fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" />
+        {/* Abstract Shutter Blades - Sharp and Clean */}
+        <path d="M35 3 L35 15 M58 18 L48 26 M67 35 L55 35 M58 52 L48 44 M35 67 L35 55 M12 52 L22 44 M3 35 L15 35 M12 18 L22 26" 
+              stroke={color} strokeWidth="1.5" strokeLinecap="round" />
         
-        {/* Lens Detail - Sharp Rings */}
-        <circle cx="32.5" cy="33" r="16" fill="none" stroke={color} strokeWidth="2.5" />
-        <circle cx="32.5" cy="33" r="8" fill={color} />
+        {/* Inner Lens Point */}
+        <circle cx="35" cy="35" r="4" fill={color} />
         
-        {/* Shutter Button */}
-        <rect x="48" y="8" width="8" height="4" fill={color} />
-        
-        {/* Viewfinder Detail */}
-        <rect x="25" y="7" width="15" height="3" fill={color} opacity="0.5" />
+        {/* Subtle Lens Reflection Line */}
+        <path d="M52 18 A22 22 0 0 1 52 52" fill="none" stroke={color} strokeWidth="0.5" opacity="0.4" />
       </g>
 
-      {/* Brand Text - Bold and Elegant */}
-      <g transform="translate(90, 15)">
+      {/* Brand Name Group */}
+      <g transform="translate(95, 20)">
+        {/* "AVI" - High-End Serif */}
         <text 
           x="0" 
-          y="52" 
+          y="45" 
           fontFamily="'Playfair Display', serif" 
-          fontSize="58" 
-          fontWeight="900" 
+          fontSize="64" 
+          fontWeight="700" 
           fill={color}
-          style={{ textTransform: 'uppercase' }}
+          letterSpacing="-1"
         >
           AVI
         </text>
         
+        {/* "CREATION" - Elegant Spaced Sans-Serif */}
         <text 
-          x="105" 
-          y="52" 
-          fontFamily="'Playfair Display', serif" 
-          fontSize="58" 
+          x="120" 
+          y="45" 
+          fontFamily="'Montserrat', sans-serif" 
+          fontSize="42" 
           fontWeight="300" 
           fill={color}
-          style={{ textTransform: 'uppercase' }}
-          letterSpacing="2"
+          letterSpacing="8"
         >
           CREATION
         </text>
         
-        {/* Sharp Underline */}
-        <rect x="2" y="72" width="410" height="2" fill={color} />
+        {/* Minimalist Divider Line */}
+        <rect x="2" y="65" width="380" height="1" fill={color} opacity="0.3" />
         
-        {/* Professional Tagline */}
+        {/* Premium Tagline */}
         <text 
-          x="4" 
-          y="100" 
+          x="2" 
+          y="90" 
           fontFamily="'Montserrat', sans-serif" 
-          fontSize="20" 
-          letterSpacing="14" 
+          fontSize="16" 
+          letterSpacing="18" 
           fill={color} 
-          fontWeight="600"
-          style={{ textTransform: 'uppercase' }}
+          fontWeight="400"
+          opacity="0.9"
         >
           PHOTOGRAPHY
         </text>
