@@ -156,3 +156,49 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   --tw-gradient-from: #000;
   --tw-gradient-stops: var(--tw-gradient-from), transparent;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .display-1 {
+    font-size: 3.2rem !important;
+  }
+  .display-4 {
+    font-size: 2rem !important;
+  }
+  .display-3 {
+    font-size: 2.5rem !important;
+  }
+  .hero-section {
+    height: 85vh !important;
+  }
+  .hero-section p.lead {
+    font-size: 1.1rem !important;
+    max-width: 90% !important;
+  }
+  .navbar-brand svg {
+    width: 140px !important;
+  }
+  .letter-spacing-18 {
+    letter-spacing: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .display-1 {
+    font-size: 2.8rem !important;
+  }
+  .display-3 {
+    font-size: 2rem !important;
+  }
+  .hero-section {
+    height: 75vh !important;
+  }
+  .btn-lg {
+    padding: 12px 25px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+.transition-all {
+  transition: all 0.5s ease;
+}

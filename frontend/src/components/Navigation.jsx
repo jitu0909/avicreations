@@ -5,6 +5,7 @@ import Logo from './Logo';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -25,7 +26,7 @@ const Navigation = () => {
   const logoColor = scrolled ? '#1a1a1a' : '#ffffff';
 
   return (
-    <Navbar 
+    <Navbar expanded={expanded} onToggle={(val) => setExpanded(val)} 
       expand="lg" 
       fixed="top" 
       className={`py-3 transition-all duration-500 ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}
@@ -33,7 +34,7 @@ const Navigation = () => {
     >
       <Container>
         <Navbar.Brand 
-          as={Link} 
+          as={Link} onClick={() => setExpanded(false)} 
           to="/" 
           className="d-flex align-items-center"
         >
@@ -46,7 +47,7 @@ const Navigation = () => {
               <Nav.Link 
                 as={Link} 
                 to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-                key={item}
+                key={item} onClick={() => setExpanded(false)}
                 className={`mx-3 text-uppercase letter-spacing-2 ${
                   location.pathname === (item === 'Home' ? '/' : `/${item.toLowerCase()}`) 
                     ? 'text-gold' 
