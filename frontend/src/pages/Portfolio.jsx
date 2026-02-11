@@ -9,7 +9,6 @@ const portfolioItems = [
   // Wedding (Red/Gold & Trending)
   { id: 1, category: "Wedding", img: "https://images.pexels.com/photos/8565495/pexels-photo-8565495.jpeg?auto=compress&cs=tinysrgb&w=800", height: "auto" }, // Groom Turban + Bride Lehenga
   { id: 2, category: "Wedding", img: "https://images.pexels.com/photos/6544197/pexels-photo-6544197.jpeg?auto=compress&cs=tinysrgb&w=800", height: "auto" }, // Traditional Couple
-  { id: 3, category: "Wedding", img: "https://images.pexels.com/photos/13974866/pexels-photo-13974866.jpeg?auto=compress&cs=tinysrgb&w=800", height: "auto" }, // Royal Couple
   { id: 4, category: "Wedding", img: "https://images.pexels.com/photos/30155180/pexels-photo-30155180.jpeg?auto=compress&cs=tinysrgb&w=800", height: "auto" }, // New Romantic Embrace
   { id: 5, category: "Wedding", img: "https://images.pexels.com/photos/19733687/pexels-photo-19733687.jpeg?auto=compress&cs=tinysrgb&w=800", height: "auto" }, // Gujarat Couple
   { id: 6, category: "Wedding", img: "https://images.pexels.com/photos/31965606/pexels-photo-31965606.jpeg?auto=compress&cs=tinysrgb&w=800", height: "auto" }, // Holding Hands Detail

@@ -9,7 +9,6 @@ import SectionTitle from '../components/SectionTitle';
 const heroImages = [
   "https://images.pexels.com/photos/8565495/pexels-photo-8565495.jpeg?auto=compress&cs=tinysrgb&w=1600", // Groom Turban + Bride Lehenga (Perfect Match)
   "https://images.pexels.com/photos/6544197/pexels-photo-6544197.jpeg?auto=compress&cs=tinysrgb&w=1600", // Traditional Groom Pagdi + Bride Red Lehenga
-  "https://images.pexels.com/photos/13974866/pexels-photo-13974866.jpeg?auto=compress&cs=tinysrgb&w=1600", // Royal Couple (Turban & Lehenga)
   "https://images.pexels.com/photos/30155180/pexels-photo-30155180.jpeg?auto=compress&cs=tinysrgb&w=1600", // New Romantic Embrace (Trending)
   "https://images.pexels.com/photos/19733687/pexels-photo-19733687.jpeg?auto=compress&cs=tinysrgb&w=1600", // Gujarat Couple (Royal Classic)
 ];
